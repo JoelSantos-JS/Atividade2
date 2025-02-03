@@ -1,0 +1,61 @@
+{
+    "version": 1,
+    "author": "Joel Santos",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "wokwi-pi-pico", "id": "pico", "top": -3.15, "left": 128.4, "attrs": {} },
+      { "type": "wokwi-led", "id": "led1", "top": 111.6, "left": -25, "attrs": { "color": "blue" } },
+      { "type": "wokwi-led", "id": "led2", "top": 159.6, "left": -25, "attrs": { "color": "red" } },
+      {
+        "type": "wokwi-led",
+        "id": "led3",
+        "top": 207.6,
+        "left": -25,
+        "attrs": { "color": "green" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r1",
+        "top": 282.35,
+        "left": -28.8,
+        "attrs": { "value": "1000" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r2",
+        "top": 320.75,
+        "left": -28.8,
+        "attrs": { "value": "1000" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r3",
+        "top": 359.15,
+        "left": -28.8,
+        "attrs": { "value": "1000" }
+      },
+      {
+        "type": "wokwi-pushbutton",
+        "id": "btn1",
+        "top": 15.8,
+        "left": 28.8,
+        "attrs": { "color": "black" }
+      }
+    ],
+    "connections": [
+      [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+      [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+      [ "btn1:1.r", "pico:GND.1", "green", [ "v0" ] ],
+      [ "btn1:2.r", "pico:GP5", "green", [ "h0.2", "v19.4" ] ],
+      [ "led3:A", "pico:GP13", "green", [ "v0", "h86.4", "v-86.4" ] ],
+      [ "led2:A", "pico:GP12", "green", [ "v0", "h76.8", "v-48" ] ],
+      [ "led1:A", "pico:GP11", "green", [ "v0", "h57.6", "v-9.6" ] ],
+      [ "r1:2", "pico:GND.4", "green", [ "v0", "h75.6", "v-115.2" ] ],
+      [ "r2:2", "pico:GND.4", "green", [ "v0", "h75.6", "v-38.4", "h0", "v-115.2" ] ],
+      [ "r3:2", "pico:GND.4", "green", [ "v0", "h75.6", "v-192" ] ],
+      [ "led1:C", "r3:1", "green", [ "v0", "h-57.2", "v211.2" ] ],
+      [ "led2:C", "r1:1", "green", [ "v0", "h-57.2", "v163.2" ] ],
+      [ "led3:C", "r2:1", "green", [ "v0", "h-57.2", "v76.8" ] ]
+    ],
+    "dependencies": {}
+  }
